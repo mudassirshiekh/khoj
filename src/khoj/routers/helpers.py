@@ -651,10 +651,10 @@ async def generate_summary_from_files(
         if await EntryAdapters.aagent_has_entries(agent):
             file_names = await EntryAdapters.aget_agent_entry_filepaths(agent)
             if len(file_names) > 0:
-                file_object = await FileObjectAdapters.async_get_file_objects_by_name(None, file_names.pop(), agent)
+                file_object = await FileObjectAdapters.aget_file_objects_by_name(None, file_names.pop(), agent)
 
         if len(file_filters) > 0:
-            file_object = await FileObjectAdapters.async_get_file_objects_by_name(user, file_filters[0])
+            file_object = await FileObjectAdapters.aget_file_objects_by_name(user, file_filters[0])
 
         if len(file_object) == 0:
             response_log = "Sorry, I couldn't find the full text of this file."
@@ -1871,10 +1871,10 @@ def get_user_config(user: KhojUser, request: Request, is_detailed: bool = False)
 
 
 def configure_content(
+    user: KhojUser,
     files: Optional[dict[str, dict[str, str]]],
     regenerate: bool = False,
     t: Optional[state.SearchType] = state.SearchType.All,
-    user: KhojUser = None,
 ) -> bool:
     success = True
     if t == None:

@@ -253,9 +253,9 @@ def test_regenerate_with_github_fails_without_pat(client):
 
 # ----------------------------------------------------------------------------------------------------
 @pytest.mark.django_db
-def test_get_configured_types_via_api(client, sample_org_data):
+def test_get_configured_types_via_api(client, sample_org_data, default_user: KhojUser):
     # Act
-    text_search.setup(OrgToEntries, sample_org_data, regenerate=False)
+    text_search.setup(OrgToEntries, sample_org_data, regenerate=False, user=default_user)
 
     enabled_types = EntryAdapters.get_unique_file_types(user=None).all().values_list("file_type", flat=True)
 
