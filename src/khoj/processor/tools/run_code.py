@@ -62,8 +62,8 @@ async def run_code(
         async for event in send_status_func(f"**Running {len(codes)} code snippets**"):
             yield {ChatEvent.STATUS: event}
     try:
-        tasks = [execute_sandboxed_python(code, sandbox_url) for code in codes]
-        with timer("Chat actor: Execute generated programs", logger):
+        with timer("Chat actor: Execute generated programs", logger, log_level=logging.INFO):
+            tasks = [execute_sandboxed_python(code, sandbox_url) for code in codes]
             results = await asyncio.gather(*tasks)
         for result in results:
             code = result.pop("code")

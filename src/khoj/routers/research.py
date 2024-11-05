@@ -103,7 +103,7 @@ async def apick_next_tool(
         selected_tool = response.get("tool", None)
         generated_query = response.get("query", None)
         scratchpad = response.get("scratchpad", None)
-        logger.info(f"Response for determining relevant tools: {response}")
+        logger.debug(f"Response for determining relevant tools: {response}")
         if send_status_func:
             determined_tool_message = "**Determined Tool**: "
             determined_tool_message += f"{selected_tool}({generated_query})." if selected_tool else "respond."
