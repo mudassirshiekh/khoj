@@ -50,6 +50,7 @@
 </div>
 
 ## See it in action
+#By Mudassir Alam
 
 ![demo_chat](https://github.com/khoj-ai/khoj/blob/master/documentation/assets/img/quadratic_equation_khoj_web.gif?raw=true)
 
