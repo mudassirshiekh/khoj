@@ -26,6 +26,7 @@
 [💬 Discord](https://discord.gg/BDgyabRM6e)
 <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
 [✍🏽 Blog](https://blog.khoj.dev)
+## By Mudassir Alam
 
 </div>
 
